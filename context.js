@@ -2,7 +2,7 @@ const Route         = ReactRouterDOM.Route;
 const Link          = ReactRouterDOM.Link;
 const HashRouter    = ReactRouterDOM.HashRouter;
 const UserContext   = React.createContext(null);
-
+////////////////////////////////////////////////////////////////////////////
 
 let currentUserIndex = 0;
 function assignUserID(userID) {
@@ -10,7 +10,7 @@ function assignUserID(userID) {
     return currentUserIndex;
 };
 
-
+////////////////////////////////////////////////////////////////////////////
 
 function Card(props) {
     const [show, setShow]          = React.useState(true);
@@ -25,7 +25,7 @@ function Card(props) {
     
     let balance = users[currentUserIndex].balance;
     let userName = users[currentUserIndex].name;
-    
+/////////////////////////////////////////////////////////////////////////////    
   
   function validate(field, label) {
     if (!field) {
@@ -34,11 +34,13 @@ function Card(props) {
         alert(`Enter field: ${label}`);
         return false;
     }
+///////////////////////////////////////////////////////////////////////////////
     if (field === deposit) {
         if (deposit <= 0) {
             alert("Invalid output, positive numbers only");
             return false;
         }
+/////////////////////////////////////////////////////////////////////////////////
     }
     if (field === withdraw) {
         if (withdraw <= 0) {
@@ -46,6 +48,8 @@ function Card(props) {
             return false;
         }
     }
+
+/////////////////////////////////////////////////////////////////////////////////
     if (field === email) {
       if (email.includes('@') === true) return true;
       else {
@@ -56,13 +60,19 @@ function Card(props) {
     return true;
   }
 
+///////////////////////////////////////////////////////////////////////////////////
+
     function validateForm() {
         return password.length > 8 && name.length > 1 && email.length > 1;
     }
 
+////////////////////////////////////////////////////////////////////////////////////
+
     function validateLogin() {
         return password.length > 8 && name.length > 1;
     }
+
+////////////////////////////////////////////////////////////////////////////////////
     
     function handleCreate() {
         
@@ -72,6 +82,8 @@ function Card(props) {
         ctx.users.push({id: users.length+1, name, email, password, balance: 100});
         setShow(false);
     }
+
+////////////////////////////////////////////////////////////////////////////////////
     
     function clearForm() {
         setName('');
@@ -82,6 +94,8 @@ function Card(props) {
         setShow(true);
          
     }
+
+/////////////////////////////////////////////////////////////////////////////////////
 
     function handleDeposit() {
       
@@ -98,6 +112,8 @@ function Card(props) {
             setShow(true);
         }
     }
+
+////////////////////////////////////////////////////////////////////////////////////////////
 
     function handleWithdraw() {
         if (!validate(name,    'name'))       return;
@@ -117,6 +133,8 @@ function Card(props) {
         }
         
     }
+
+///////////////////////////////////////////////////////////////////////////////////////////////
 
     function handleLogin() {
         if (!validate(name,     'name'))     return;
@@ -148,11 +166,15 @@ function Card(props) {
         }
     }
 
+//////////////////////////////////////////////////////////////////////////////////////////
+
     function classes() {
         const bg = props.bgcolor ? ' bg-' + props.bgcolor : ' ';
         const txt = props.txtcolor ? ' text-' + props.txtcolor: ' text-white';
         return 'card mb-3' + bg + txt;
     }
+
+//////////////////////////////////////////////////////////////////////////////////////////
 
     return (
         <div className={classes()} style={{maxWidth: "20rem"}}>
