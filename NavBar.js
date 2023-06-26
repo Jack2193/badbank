@@ -30,7 +30,7 @@
   );
 }
 */
-function NavBar(){
+function   NavBar(){
   return(
     <>
     <nav className="navbar navbar-expand-lg navbar-secondary bg-light">
